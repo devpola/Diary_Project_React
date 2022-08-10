@@ -1,3 +1,7 @@
+/*
+ * Promise 객체 - 비동기 처리에 사용되는 객체
+ */
+
 function taskA(a, b) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {

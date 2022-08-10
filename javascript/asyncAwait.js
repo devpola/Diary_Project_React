@@ -33,6 +33,7 @@ async function worldAsync() {
     => 비동기 처리 함수의 작업이 끝날 때 까지 아래의 코드 실행 x
 ***/
 // async 사용한 함수 내에서만 await 키워드 사용 가능
+// await의 대상은 Promise 객체를 반환하는 "비동기 처리 함수"
 async function worldAsyncAwait() {
   await delay(3000);
   return "world Async";
