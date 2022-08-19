@@ -22,4 +22,4 @@ DiaryList.defaultProps = {
   diaryList: [],
 }
 
-export default DiaryList
+export default React.memo(DiaryList)

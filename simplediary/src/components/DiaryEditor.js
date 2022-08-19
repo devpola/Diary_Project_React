@@ -55,4 +55,4 @@ const DiaryEditor = () => {
   )
 }
 
-export default DiaryEditor
+export default React.memo(DiaryEditor)
