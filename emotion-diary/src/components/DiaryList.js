@@ -14,7 +14,14 @@ const emotionOptionList = [
   { value: 'bad', name: '안좋은 감정만' },
 ]
 
-const ControlMenu = ({ value, onChange, optionList }) => {
+// React.memo를 통해 부모 컴포넌트의 리렌더링에 따른 리렌더링 발생 방지
+// 오직 전달받은 props 및 본인의 state의 변경에 따른 리렌더링만 발생할 뿐
+/**
+ * + 부모 컴포넌트가 리렌더링 될 때 useCallback 처리를 하지 않은 onChange도 다시 생성되어,
+ *  ControlMenu도 리렌더링될 것 같지만, 전달받은 onChange함수는 useState 함수를 통해 반환된 setState 함수들이다.
+ * 해당 함수들은 이미 useCallback 처리가 된 상태로 반환된다!
+ */
+const ControlMenu = React.memo(({ value, onChange, optionList }) => {
   return (
     <select className='ControlMenu' value={value} onChange={(e) => onChange(e.target.value)}>
       {optionList.map((option, index) => (
@@ -24,7 +31,7 @@ const ControlMenu = ({ value, onChange, optionList }) => {
       ))}
     </select>
   )
-}
+})
 
 const DiaryList = ({ diaryList }) => {
   /**
